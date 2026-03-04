@@ -1,202 +1,212 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>د. مادح محمد جادو | استشاري المخ والأعصاب</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-navy: #0a1628;
-            --medical-blue: #1a3a5f;
-            --accent-gold: #d4a843;
-            --soft-teal: #00c9b1;
-            --white: #ffffff;
-            --bg-gradient: linear-gradient(135deg, #f8fafb 0%, #e9eff5 100%);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>د. مادح محمد جادو | استشاري المخ والأعصاب</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#050d1a; --navy2:#0a1628; --blue:#0f2444;
+  --gold:#c9a84c; --gold2:#e8c96a; --gold3:#f5e6b8;
+  --teal:#00b4a0; --teal2:#00d4be;
+  --white:#ffffff; --text:#ccd6f0; --muted:#6a7d9e;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Cairo',sans-serif;background:var(--navy);color:var(--text);overflow-x:hidden;}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Cairo', sans-serif; background: var(--bg-gradient); color: #333; line-height: 1.7; }
+.orb{position:fixed;border-radius:50%;filter:blur(80px);opacity:.12;animation:drift 20s ease-in-out infinite;pointer-events:none;z-index:0;}
+.orb1{width:500px;height:500px;background:var(--teal);top:-100px;right:-100px;}
+.orb2{width:400px;height:400px;background:var(--gold);bottom:-50px;left:-100px;animation-delay:-7s;}
+.orb3{width:300px;height:300px;background:#1a5f7a;top:50%;left:50%;animation-delay:-14s;}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate(40px,-30px) scale(1.1);}66%{transform:translate(-30px,40px) scale(.9);}}
 
-        /* Hero Section */
-        header {
-            background: var(--primary-navy);
-            background-image: radial-gradient(circle at 20% 30%, rgba(0, 201, 177, 0.15) 0%, transparent 50%),
-                              radial-gradient(circle at 80% 70%, rgba(212, 168, 67, 0.1) 0%, transparent 50%);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            border-bottom: 6px solid var(--accent-gold);
-            position: relative;
-        }
+.grid-overlay{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(rgba(201,168,76,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.03) 1px,transparent 1px);
+  background-size:60px 60px;}
 
-        .profile-container { position: relative; display: inline-block; margin-bottom: 20px; }
-        .profile-img {
-            width: 170px; height: 170px;
-            border-radius: 50%;
-            border: 5px solid var(--white);
-            object-fit: cover;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-        }
+header{position:relative;z-index:10;padding:0 20px;text-align:center;overflow:hidden;}
+.hero-inner{max-width:700px;margin:0 auto;padding:60px 0 50px;}
+.hero-arc{position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:300px;border-radius:0 0 50% 50%;border:1px solid rgba(201,168,76,.1);pointer-events:none;}
+.hero-arc2{width:400px;height:200px;border-color:rgba(0,180,160,.08);}
 
-        header h1 { font-size: 32px; font-weight: 900; margin-bottom: 10px; letter-spacing: -1px; }
-        header .tagline { font-size: 18px; color: var(--soft-teal); font-weight: 700; margin-bottom: 25px; }
+.profile-ring{position:relative;display:inline-block;margin-bottom:28px;}
+.ring-outer{position:absolute;inset:-12px;border-radius:50%;background:conic-gradient(var(--gold) 0deg,var(--gold2) 60deg,transparent 120deg,transparent 180deg,var(--teal) 240deg,var(--teal2) 300deg,var(--gold) 360deg);animation:spin 8s linear infinite;opacity:.7;}
+.ring-mask{position:absolute;inset:-9px;border-radius:50%;background:var(--navy);}
+@keyframes spin{to{transform:rotate(360deg);}}
+.profile-img{position:relative;z-index:2;width:160px;height:160px;border-radius:50%;object-fit:cover;border:3px solid rgba(201,168,76,.3);display:block;animation:fadeUp .8s ease both;}
+.verified{position:absolute;bottom:4px;left:4px;z-index:3;background:linear-gradient(135deg,var(--teal),var(--teal2));border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:16px;border:3px solid var(--navy);box-shadow:0 4px 15px rgba(0,180,160,.4);}
 
-        /* Ramadan Special */
-        .ramadan-notice {
-            background: var(--accent-gold);
-            color: var(--primary-navy);
-            max-width: 600px;
-            margin: -30px auto 30px;
-            padding: 15px;
-            border-radius: 50px;
-            font-weight: 900;
-            box-shadow: 0 10px 20px rgba(212, 168, 67, 0.3);
-            display: flex; align-items: center; justify-content: center; gap: 10px;
-            position: relative; z-index: 10;
-        }
+.doctor-name{font-family:'Amiri',serif;font-size:38px;font-weight:700;color:var(--white);margin-bottom:8px;letter-spacing:1px;animation:fadeUp .8s .1s ease both;}
+.doctor-name span{color:var(--gold2);}
+.doctor-title{font-size:15px;color:var(--teal2);font-weight:600;letter-spacing:2px;margin-bottom:6px;animation:fadeUp .8s .2s ease both;}
+.doctor-sub{font-size:13px;color:var(--muted);margin-bottom:28px;animation:fadeUp .8s .25s ease both;}
 
-        /* Clinic Cards */
-        .container { max-width: 900px; margin: 20px auto 50px; padding: 0 20px; }
-        .section-title { text-align: center; margin-bottom: 30px; color: var(--primary-navy); font-weight: 900; }
+.gold-divider{display:flex;align-items:center;justify-content:center;gap:12px;margin:0 auto 28px;width:280px;animation:fadeUp .8s .3s ease both;}
+.gold-divider::before,.gold-divider::after{content:'';flex:1;height:1px;}
+.gold-divider::before{background:linear-gradient(90deg,transparent,var(--gold));}
+.gold-divider::after{background:linear-gradient(90deg,var(--gold),transparent);}
+.gold-divider span{color:var(--gold);font-size:14px;}
 
-        .clinic-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            margin-bottom: 30px;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border-right: 8px solid var(--soft-teal);
-            transition: transform 0.3s ease;
-        }
-        .clinic-card:hover { transform: translateY(-5px); }
+.social-bar{display:flex;justify-content:center;gap:12px;animation:fadeUp .8s .35s ease both;}
+.social-btn{display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:30px;text-decoration:none;font-size:12px;font-weight:700;border:1px solid rgba(255,255,255,.1);color:var(--text);background:rgba(255,255,255,.04);transition:all .3s ease;backdrop-filter:blur(10px);}
+.social-btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,.08);transform:translateY(-2px);}
+.social-btn .dot{width:6px;height:6px;border-radius:50%;background:currentColor;}
 
-        .clinic-header { background: #fdfdfd; padding: 20px; border-bottom: 1px solid #eee; }
-        .clinic-header h3 { color: var(--medical-blue); font-size: 22px; font-weight: 900; }
-        
-        .clinic-body { padding: 25px; }
-        .info-row { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px; }
-        .info-row span.icon { font-size: 20px; }
-        .info-text { font-size: 15px; color: #555; }
-        .info-text strong { color: var(--primary-navy); }
+.ramadan-wrap{position:relative;z-index:10;display:flex;justify-content:center;padding:0 20px;margin-bottom:50px;}
+.ramadan-banner{background:linear-gradient(135deg,var(--gold) 0%,var(--gold2) 50%,var(--gold) 100%);color:var(--navy);padding:14px 32px;border-radius:60px;font-size:15px;font-weight:900;display:flex;align-items:center;gap:10px;box-shadow:0 8px 30px rgba(201,168,76,.35);animation:pulse-gold 3s ease-in-out infinite,fadeUp .8s .4s ease both;letter-spacing:.5px;}
+@keyframes pulse-gold{0%,100%{box-shadow:0 8px 30px rgba(201,168,76,.35);}50%{box-shadow:0 8px 40px rgba(201,168,76,.55),0 0 0 4px rgba(201,168,76,.1);}}
 
-        .btn-group { display: flex; gap: 10px; margin-top: 20px; }
-        .btn {
-            flex: 1;
-            text-align: center;
-            padding: 12px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 14px;
-            transition: 0.3s;
-        }
-        .btn-map { background: var(--primary-navy); color: white; }
-        .btn-call { background: var(--soft-teal); color: white; }
-        .btn:hover { opacity: 0.9; }
+.container{position:relative;z-index:10;max-width:860px;margin:0 auto;padding:0 20px 80px;}
+.section-title{text-align:center;font-size:13px;font-weight:700;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:30px;display:flex;align-items:center;gap:16px;}
+.section-title::before,.section-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.3),transparent);}
 
-        /* Social Media Bar */
-        .social-bar { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
-        .social-icon { background: rgba(255,255,255,0.1); width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white; text-decoration: none; border: 1px solid rgba(255,255,255,0.2); transition: 0.3s; }
-        .social-icon:hover { background: var(--soft-teal); border-color: var(--soft-teal); }
+.stats-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;animation:fadeUp .6s .5s ease both;}
+.stat-item{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:20px 14px;text-align:center;transition:all .3s ease;}
+.stat-item:hover{border-color:rgba(201,168,76,.2);background:rgba(201,168,76,.04);}
+.stat-num{font-size:28px;font-weight:900;background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:4px;}
+.stat-label{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.5px;}
 
-        footer { text-align: center; padding: 40px 20px; background: #eee; color: #777; font-size: 13px; }
-    </style>
+.clinic-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:24px;overflow:hidden;margin-bottom:24px;backdrop-filter:blur(20px);transition:all .4s ease;position:relative;}
+.clinic-card:nth-child(1){animation:fadeUp .6s .1s ease both;}
+.clinic-card:nth-child(2){animation:fadeUp .6s .2s ease both;}
+.clinic-card:nth-child(3){animation:fadeUp .6s .3s ease both;}
+.clinic-card:hover{transform:translateY(-6px);border-color:rgba(201,168,76,.25);box-shadow:0 20px 60px rgba(0,0,0,.4);}
+.clinic-card::before{content:'';position:absolute;top:0;right:0;width:4px;height:100%;background:linear-gradient(180deg,var(--teal),var(--gold));border-radius:0 24px 24px 0;}
+.clinic-card.gold-accent::before{background:linear-gradient(180deg,var(--gold),var(--gold2));}
+
+.clinic-head{padding:22px 28px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.05);}
+.clinic-name-wrap{display:flex;align-items:center;gap:14px;}
+.clinic-icon-box{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;background:linear-gradient(135deg,rgba(0,180,160,.15),rgba(0,180,160,.05));border:1px solid rgba(0,180,160,.2);}
+.gold-accent .clinic-icon-box{background:linear-gradient(135deg,rgba(201,168,76,.15),rgba(201,168,76,.05));border-color:rgba(201,168,76,.2);}
+.clinic-title{font-size:20px;font-weight:900;color:var(--white);}
+.clinic-location{font-size:12px;color:var(--muted);margin-top:2px;}
+.status-badge{padding:5px 14px;border-radius:20px;font-size:11px;font-weight:700;background:rgba(0,180,160,.1);color:var(--teal2);border:1px solid rgba(0,180,160,.2);}
+
+.clinic-body{padding:22px 28px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.info-item{display:flex;align-items:flex-start;gap:10px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:12px 14px;}
+.info-item.full{grid-column:1/-1;}
+.info-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+.info-label{font-size:10px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:3px;}
+.info-value{font-size:13px;font-weight:600;color:var(--text);line-height:1.4;}
+
+.clinic-footer{padding:0 28px 22px;display:flex;gap:10px;}
+.btn{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 16px;border-radius:14px;text-decoration:none;font-family:'Cairo',sans-serif;font-size:13px;font-weight:700;transition:all .3s ease;}
+.btn-call{background:linear-gradient(135deg,var(--teal),var(--teal2));color:var(--navy);box-shadow:0 6px 20px rgba(0,180,160,.25);}
+.btn-call:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,180,160,.4);}
+.btn-map{background:rgba(255,255,255,.05);color:var(--text);border:1px solid rgba(255,255,255,.1);}
+.btn-map:hover{background:rgba(201,168,76,.1);border-color:rgba(201,168,76,.3);color:var(--gold2);transform:translateY(-2px);}
+
+.online-card{background:linear-gradient(135deg,rgba(0,180,160,.08),rgba(201,168,76,.06));border:1px solid rgba(0,180,160,.2);border-radius:24px;padding:30px 28px;text-align:center;margin-bottom:24px;position:relative;overflow:hidden;animation:fadeUp .6s .4s ease both;}
+.online-title{font-size:18px;font-weight:900;color:var(--white);margin-bottom:6px;}
+.online-sub{font-size:13px;color:var(--muted);margin-bottom:20px;}
+.btn-whatsapp{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#25d366,#128c7e);color:white;padding:14px 32px;border-radius:50px;text-decoration:none;font-family:'Cairo',sans-serif;font-size:15px;font-weight:700;box-shadow:0 8px 25px rgba(37,211,102,.3);transition:all .3s ease;}
+.btn-whatsapp:hover{transform:translateY(-3px);box-shadow:0 14px 35px rgba(37,211,102,.45);}
+
+footer{position:relative;z-index:10;text-align:center;padding:30px 20px 40px;border-top:1px solid rgba(255,255,255,.05);}
+.footer-name{font-family:'Amiri',serif;font-size:18px;color:var(--gold);margin-bottom:6px;}
+.footer-copy{font-size:12px;color:var(--muted);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@media(max-width:600px){.doctor-name{font-size:28px;}.clinic-body{grid-template-columns:1fr;}.stats-bar{grid-template-columns:1fr;gap:10px;}.clinic-footer{flex-direction:column;}.info-item.full{grid-column:1;}}
+</style>
 </head>
 <body>
+<div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+<div class="grid-overlay"></div>
 
 <header>
-    <div class="profile-container">
-        <img src="https://raw.githubusercontent.com/DrMadeh/neuromorning/main/1767173976637.jpg" alt="د. مادح محمد جادو" class="profile-img">
+  <div class="hero-arc"></div><div class="hero-arc hero-arc2"></div>
+  <div class="hero-inner">
+    <div class="profile-ring">
+      <div class="ring-outer"></div><div class="ring-mask"></div>
+      <img src="https://raw.githubusercontent.com/DrMadeh/neuromorning/main/1767173976637.jpg" alt="د. مادح محمد جادو" class="profile-img" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22160%22><circle cx=%2280%22 cy=%2280%22 r=%2280%22 fill=%22%230f2444%22/><text x=%2250%25%22 y=%2255%25%22 font-size=%2240%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22%23c9a84c%22>🧠</text></svg>'">
+      <div class="verified">✓</div>
     </div>
-    <h1>د. مادح محمد جادو</h1>
-    <p class="tagline">استشاري طب المخ والأعصاب والعمود الفقري</p>
-    
+    <h1 class="doctor-name">د. <span>مادح محمد</span> جادو</h1>
+    <p class="doctor-title">استشاري طب المخ والأعصاب والعمود الفقري</p>
+    <p class="doctor-sub">الزمالة المصرية لأمراض المخ والأعصاب • المنصورة، مصر</p>
+    <div class="gold-divider"><span>✦</span></div>
     <div class="social-bar">
-        <a href="https://facebook.com/share/1Ana4fLkYK" class="social-icon" title="فيسبوك">FB</a>
-        <a href="https://youtube.com/@DrMadehNeuro" class="social-icon" title="يوتيوب">YT</a>
-        <a href="https://tiktok.com/@drmadehneuro" class="social-icon" title="تيك توك">TK</a>
+      <a href="https://facebook.com/share/1Ana4fLkYK" class="social-btn" target="_blank"><span class="dot"></span>فيسبوك</a>
+      <a href="https://youtube.com/@DrMadehNeuro" class="social-btn" target="_blank"><span class="dot"></span>يوتيوب</a>
+      <a href="https://tiktok.com/@drmadehneuro" class="social-btn" target="_blank"><span class="dot"></span>تيك توك</a>
     </div>
+  </div>
 </header>
 
+<div class="ramadan-wrap">
+  <div class="ramadan-banner">🌙 مواعيد العيادة خلال شهر رمضان المبارك 1447 هـ</div>
+</div>
+
 <div class="container">
-    <div class="ramadan-notice">🌙 مواعيد العمل الرسمية خلال شهر رمضان المبارك</div>
+  <div class="stats-bar">
+    <div class="stat-item"><span class="stat-num">21K+</span><span class="stat-label">متابع على فيسبوك</span></div>
+    <div class="stat-item"><span class="stat-num">3</span><span class="stat-label">فروع في الدقهلية</span></div>
+    <div class="stat-item"><span class="stat-num">90%</span><span class="stat-label">توصية المرضى</span></div>
+  </div>
 
-    <h2 class="section-title">فروع العيادة والحجز</h2>
+  <p class="section-title">فروع العيادة والحجز</p>
 
-    <div class="clinic-card">
-        <div class="clinic-header"><h3>📍 عيادة المنصورة</h3></div>
-        <div class="clinic-body">
-            <div class="info-row">
-                <span class="icon">📅</span>
-                <div class="info-text"><strong>الأيام:</strong> الإثنين – الخميس</div>
-            </div>
-            <div class="info-row">
-                <span class="icon">⏰</span>
-                <div class="info-text"><strong>الوقت:</strong> من ١ لـ ٤ عصراً</div>
-            </div>
-            <div class="info-row">
-                <span class="icon">🏢</span>
-                <div class="info-text"><strong>العنوان:</strong> مشعل – أمام مطعم العناني – فوق مركز الجراحة – الدور الخامس</div>
-            </div>
-            <div class="btn-group">
-                <a href="tel:01096907111" class="btn btn-call">اتصال 01096907111</a>
-                <a href="https://maps.app.goo.gl/1Rm1XGmycrWPRg99A" class="btn btn-map">عرض الخريطة</a>
-            </div>
-        </div>
+  <div class="clinic-card">
+    <div class="clinic-head">
+      <div class="clinic-name-wrap"><div class="clinic-icon-box">🧠</div><div><div class="clinic-title">عيادة المنصورة</div><div class="clinic-location">المنصورة، الدقهلية</div></div></div>
+      <div class="status-badge">● مفتوح</div>
     </div>
-
-    <div class="clinic-card" style="border-right-color: var(--accent-gold);">
-        <div class="clinic-header"><h3>📍 عيادة بلقاس</h3></div>
-        <div class="clinic-body">
-            <div class="info-row">
-                <span class="icon">📅</span>
-                <div class="info-text"><strong>الأيام:</strong> السبت – الثلاثاء</div>
-            </div>
-            <div class="info-row">
-                <span class="icon">⏰</span>
-                <div class="info-text"><strong>الوقت:</strong> من 10:00 صباحاً لـ ٣ عصراً</div>
-            </div>
-            <div class="info-row">
-                <span class="icon">🏢</span>
-                <div class="info-text"><strong>العنوان:</strong> المزلقان – طلعت مطاوع – الدور الثاني</div>
-            </div>
-            <div class="btn-group">
-                <a href="tel:01096907444" class="btn btn-call">اتصال 01096907444</a>
-                <a href="https://maps.app.goo.gl/wUY8tpKUfh4aErbr5" class="btn btn-map">عرض الخريطة</a>
-            </div>
-        </div>
+    <div class="clinic-body">
+      <div class="info-item"><span class="info-icon">📅</span><div><div class="info-label">الأيام</div><div class="info-value">الإثنين — الخميس</div></div></div>
+      <div class="info-item"><span class="info-icon">⏰</span><div><div class="info-label">الوقت</div><div class="info-value">١ عصراً — ٤ عصراً</div></div></div>
+      <div class="info-item full"><span class="info-icon">🏢</span><div><div class="info-label">العنوان</div><div class="info-value">مشعل — أمام مطعم العناني — فوق مركز الجراحة — الدور الخامس</div></div></div>
     </div>
-
-    <div class="clinic-card">
-        <div class="clinic-header"><h3>📍 عيادة ديسط</h3></div>
-        <div class="clinic-body">
-            <div class="info-row">
-                <span class="icon">📅</span>
-                <div class="info-text"><strong>الأيام:</strong> الأحد – الأربعاء</div>
-            </div>
-            <div class="info-row">
-                <span class="icon">⏰</span>
-                <div class="info-text"><strong>الوقت:</strong> من ١ لـ ٤ عصراً</div>
-            </div>
-            <div class="info-row">
-                <span class="icon">🏢</span>
-                <div class="info-text"><strong>العنوان:</strong> أول البلد – أمام الكوبري الصغير</div>
-            </div>
-            <div class="btn-group">
-                <a href="tel:01006761235" class="btn btn-call">اتصال 01006761235</a>
-                <a href="https://maps.app.goo.gl/DoVZCUkRKKgv9xiY8" class="btn btn-map">عرض الخريطة</a>
-            </div>
-        </div>
+    <div class="clinic-footer">
+      <a href="tel:01096907111" class="btn btn-call">📞 01096907111</a>
+      <a href="https://maps.app.goo.gl/1Rm1XGmycrWPRg99A" class="btn btn-map" target="_blank">🗺️ الخريطة</a>
     </div>
+  </div>
+
+  <div class="clinic-card gold-accent">
+    <div class="clinic-head">
+      <div class="clinic-name-wrap"><div class="clinic-icon-box">🧠</div><div><div class="clinic-title">عيادة بلقاس</div><div class="clinic-location">بلقاس، الدقهلية</div></div></div>
+      <div class="status-badge">● مفتوح</div>
+    </div>
+    <div class="clinic-body">
+      <div class="info-item"><span class="info-icon">📅</span><div><div class="info-label">الأيام</div><div class="info-value">السبت — الثلاثاء</div></div></div>
+      <div class="info-item"><span class="info-icon">⏰</span><div><div class="info-label">الوقت</div><div class="info-value">١٠ صباحاً — ٣ عصراً</div></div></div>
+      <div class="info-item full"><span class="info-icon">🏢</span><div><div class="info-label">العنوان</div><div class="info-value">المزلقان — طلعت مطاوع — الدور الثاني</div></div></div>
+    </div>
+    <div class="clinic-footer">
+      <a href="tel:01096907444" class="btn btn-call">📞 01096907444</a>
+      <a href="https://maps.app.goo.gl/wUY8tpKUfh4aErbr5" class="btn btn-map" target="_blank">🗺️ الخريطة</a>
+    </div>
+  </div>
+
+  <div class="clinic-card">
+    <div class="clinic-head">
+      <div class="clinic-name-wrap"><div class="clinic-icon-box">🧠</div><div><div class="clinic-title">عيادة ديسط</div><div class="clinic-location">ديسط، الدقهلية</div></div></div>
+      <div class="status-badge">● مفتوح</div>
+    </div>
+    <div class="clinic-body">
+      <div class="info-item"><span class="info-icon">📅</span><div><div class="info-label">الأيام</div><div class="info-value">الأحد — الأربعاء</div></div></div>
+      <div class="info-item"><span class="info-icon">⏰</span><div><div class="info-label">الوقت</div><div class="info-value">١ عصراً — ٤ عصراً</div></div></div>
+      <div class="info-item full"><span class="info-icon">🏢</span><div><div class="info-label">العنوان</div><div class="info-value">أول البلد — أمام الكوبري الصغير</div></div></div>
+    </div>
+    <div class="clinic-footer">
+      <a href="tel:01006761235" class="btn btn-call">📞 01006761235</a>
+      <a href="https://maps.app.goo.gl/DoVZCUkRKKgv9xiY8" class="btn btn-map" target="_blank">🗺️ الخريطة</a>
+    </div>
+  </div>
+
+  <div class="online-card">
+    <div class="online-title">🌐 كشف أونلاين</div>
+    <div class="online-sub">استشارة متخصصة من أي مكان — عبر واتساب</div>
+    <a href="https://wa.me/201096907444" class="btn-whatsapp" target="_blank">💬 ابدأ محادثة واتساب</a>
+  </div>
 </div>
 
 <footer>
-    <p>تشخيص دقيق • عناية متخصصة • متابعة فردية</p>
-    <p>جميع الحقوق محفوظة © د. مادح محمد جادو 2026</p>
+  <div class="footer-name">د. مادح محمد جادو</div>
+  <div class="footer-copy">تشخيص دقيق • عناية متخصصة • متابعة فردية<br>جميع الحقوق محفوظة © 2026</div>
 </footer>
-
 </body>
 </html>
