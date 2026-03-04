@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الموقع الرسمي | د. مادح محمد جادو</title>
+    <title>الموقع الرسمي - د. مادح محمد جادو</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -18,121 +18,51 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Cairo', sans-serif; background-color: var(--light-bg); color: #333; line-height: 1.6; }
 
-        /* Header & Profile */
         header {
             background: linear-gradient(135deg, var(--navy) 0%, var(--deep-blue) 100%);
             color: white;
-            padding: 60px 20px;
+            padding: 50px 20px;
             text-align: center;
             border-bottom: 5px solid var(--accent-gold);
         }
 
         .profile-img {
-            width: 180px;
-            height: 180px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
-            border: 5px solid var(--white);
-            margin-bottom: 20px;
+            border: 4px solid var(--white);
+            margin-bottom: 15px;
             object-fit: cover;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
 
-        header h1 { font-size: 32px; font-weight: 900; margin-bottom: 10px; }
-        header p { font-size: 18px; color: var(--accent-teal); font-weight: 700; }
+        header h1 { font-size: 28px; font-weight: 900; margin-bottom: 8px; }
+        header .specialty { font-size: 18px; color: var(--accent-teal); font-weight: 700; margin-bottom: 15px; }
 
-        /* Sections */
-        .container { max-width: 900px; margin: -40px auto 40px; padding: 0 20px; }
+        .ramadan-banner {
+            background: var(--accent-gold);
+            color: var(--navy);
+            padding: 10px;
+            font-weight: 900;
+            font-size: 16px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+
+        .container { max-width: 850px; margin: -30px auto 40px; padding: 0 20px; }
         .card {
             background: white;
-            padding: 30px;
+            padding: 25px;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             margin-bottom: 25px;
+            border-right: 6px solid var(--accent-teal);
         }
 
-        h2 { color: var(--navy); border-right: 5px solid var(--accent-teal); padding-right: 15px; margin-bottom: 20px; font-size: 22px; }
-
-        /* Grid for Clinics */
-        .clinic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .clinic-item {
-            background: var(--light-bg);
-            padding: 20px;
-            border-radius: 10px;
-            border-top: 4px solid var(--accent-gold);
-        }
-        .clinic-item h3 { font-size: 18px; color: var(--deep-blue); margin-bottom: 10px; }
-        .time-tag { background: var(--navy); color: white; padding: 5px 10px; border-radius: 5px; font-size: 13px; display: inline-block; margin-bottom: 10px; }
-
-        /* Social Links */
-        .social-links { display: flex; justify-content: center; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
-        .social-btn {
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            font-size: 14px;
-            transition: 0.3s;
-        }
-        .fb { background: #1877F2; }
-        .yt { background: #FF0000; }
-        .tk { background: #000000; }
-        .wa { background: #25D366; }
-
-        footer { text-align: center; padding: 30px; color: #777; font-size: 13px; }
-    </style>
-</head>
-<body>
-
-<header>
-    <img src="https://raw.githubusercontent.com/DrMadeh/neuromorning/main/1767173976637.jpg" alt="د. مادح محمد جادو" class="profile-img">
-    <h1>د. مادح محمد جادو</h1>
-    <p>استشاري طب المخ والأعصاب والعمود الفقري</p>
-    
-    <div class="social-links">
-        <a href="https://facebook.com/share/1Ana4fLkYK" class="social-btn fb">فيسبوك</a>
-        <a href="https://youtube.com/@DrMadehNeuro" class="social-btn yt">يوتيوب</a>
-        <a href="https://tiktok.com/@drmadehneuro" class="social-btn tk">تيك توك</a>
-        <a href="https://wa.me/201096907444" class="social-btn wa">واتساب الحجز</a>
-    </div>
-</header>
-
-<div class="container">
-    <div class="card">
-        <h2>التعريف المهني</h2>
-        <p>استشاري طب المخ والأعصاب - حاصل على الزمالة المصرية للأمراض العصبية.</p>
-        <p>رئيس قسم المخ والأعصاب بمستشفى بلقاس المركزي.</p>
-        <p>متخصص في علاج أمراض السكتة الدماغية، الصرع، الانزلاق الغضروفي، والتهاب الأعصاب الطرفية.</p>
-    </div>
-
-    <div class="card">
-        <h2>مواعيد العيادات</h2>
-        <div class="clinic-grid">
-            <div class="clinic-item">
-                <h3>📍 عيادة المنصورة</h3>
-                <span class="time-tag">السبت - الاثنين - الأربعاء</span>
-                <p>🕒 من 4:00 عصراً حتى 8:00 مساءً</p>
-                <p>📞 01096907111</p>
-            </div>
-            <div class="clinic-item">
-                <h3>📍 عيادة بلقاس</h3>
-                <span class="time-tag">يومياً عدا الجمعة</span>
-                <p>🕒 من 1:00 ظهراً حتى 4:00 عصراً</p>
-                <p>📞 01096907444</p>
-            </div>
-            <div class="clinic-item">
-                <h3>📍 عيادة ديسط</h3>
-                <span class="time-tag">الثلاثاء - الخميس</span>
-                <p>🕒 من 7:00 مساءً</p>
-                <p>📞 01006761235</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<footer>
-    <p>جميع الحقوق محفوظة © د. مادح محمد جادو 2026</p>
-</footer>
-
-</body>
-</html>
+        h2 { color: var(--navy); margin-bottom: 20px; font-size: 20px; font-weight: 900; }
+        
+        .clinic-info { margin-bottom: 15px; }
+        .clinic-info strong { color: var(--deep-blue); display: block; font-size: 18px; margin-bottom: 5px; }
+        .clinic-detail { font-size: 14px; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
+        
+        .map-link
